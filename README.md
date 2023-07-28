@@ -27,7 +27,7 @@ POSTGRES_HOSTNAME=127.0.0.1
 Для запуска приложения из директории с docker-compose файлом:
 
 ```bash
-docker compose -f .\docker-compose-dev.yml up -d
+docker compose -f docker-compose-dev.yml up -d
 ```
 
 ## Swagger documentation
