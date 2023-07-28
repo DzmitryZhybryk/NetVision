@@ -1,0 +1,29 @@
+
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "Dzmitry Zhybryk", email = "mr.zhybryk@gmail.com"},
+]
+dependencies = [
+    "fastapi>=0.100.0",
+    "pydantic-settings>=2.0.2",
+    "alembic>=1.11.1",
+    "sqlalchemy[asyncio]>=2.0.19",
+    "psycopg[binary]>=3.1.9",
+    "hypercorn>=0.14.4",
+    "redis>=4.6.0",
+]
+requires-python = ">=3.11"
+license = {text = "MIT"}
+[project.optional-dependencies]
+client = [
+    "aiohttp>=3.8.4",
+]
+
+[tool.pdm.scripts]
+i-dev = "pdm install"
+i-client = "pdm install -dG client"
+server = "pdm run hypercorn --bind 0.0.0.0:8001 --reload --access-logfile - app.main:app"
+client = "pdm run python client/main.py"
